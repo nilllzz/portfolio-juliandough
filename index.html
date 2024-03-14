@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="description" content="juliandough portfolio" />
+    <meta charset="utf-8">
+    <title>Julian Dough</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="nilllzz">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/ico" href="favicon.ico" />
+</head>
+
+<body>
+    <div class="polkadot-bg">
+        <div class="polkadot-bg-inner"></div>
+    </div>
+
+    <div class="page">
+        <div class="content">
+            <div class="col col-info">
+                <div class="card card-sticky">
+                    <div class="pfp-img-container">
+                        <div class="center-image">
+                            <img src="img/pfp.png" class="pfp-img bounce" alt="Profile picture" />
+                        </div>
+                        <img src="img/surprised.png" class="pfp-img-surprised" />
+                    </div>
+
+                    <div class="center-image">
+                        <img src="img/signature.png" class="signature-img" alt="Signature" />
+                    </div>
+
+                    <hr />
+
+                    <div>
+                        <p aria-label="Bio">
+                            I draw furry art, trying to make a comic but have lack motivation into starting it, I like
+                            watching
+                            YouTube tho
+                        </p>
+                        <div>
+                            <i class="bi bi-globe-americas"></i> United States
+                        </div>
+
+                    </div>
+
+                    <hr />
+
+                    <div class="social-icons">
+                        <a class="social-icon bounce social-icon-discord" href="https://discord.com"
+                            aria-label="Discord link button" title="Discord">
+                            <i class="bi bi-discord"></i>
+                        </a>
+                        <a class="social-icon bounce social-icon-twitter" href="https://x.com/bobbycat25?s=20"
+                            aria-label="Twitter link button" title="Twitter/X">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a class="social-icon bounce social-icon-artistcrow" href="https://artistcrow.com/juliandough"
+                            aria-label="Artistcrow link button" title="Artistcrow">
+                            <i class="bi bi-brush-fill"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-data">
+                <div class="card">
+                    <div class="commission-status-label">
+                        My commission status is
+                    </div>
+                    <div>
+                        <div class="warning-message">
+                            <span class="warning-text">
+                                <span class="scroll-text-container">
+                                    <span class="scroll-text-content">▶<br />▶</span>
+                                </span>
+                                <span>OPEN</span>
+                                <span class="scroll-text-container">
+                                    <span class="scroll-text-content scroll-text-content-invert">◀<br />◀</span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-preview-container">
+                        <div class="portfolio-preview" id="portfolio-preview-container">
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <details>
+                        <summary>
+                            <h2>How to commission me</h2>
+                        </summary>
+                        <div>
+                            Kill someone with a hammer
+                        </div>
+                    </details>
+
+                    <hr />
+
+                    <details>
+                        <summary>
+                            <h2>Commission conditions</h2>
+                        </summary>
+                        <div>
+                            There has to be a maid dress.
+                        </div>
+                    </details>
+
+                    <hr />
+
+                    <details>
+                        <summary>
+                            <h2>License</h2>
+                        </summary>
+                        <div>
+                            I own you
+                        </div>
+                    </details>
+
+                    <hr />
+
+                    <details>
+                        <summary>
+                            <h2>Pricing</h2>
+                        </summary>
+                        <div>
+                            4 morbillion dollars per
+                        </div>
+                    </details>
+
+                    <hr />
+
+                    <p>Link to queue</p>
+                    <p>Larger categorized gallery</p>
+
+                    <div class="copyright-footer">
+                        Copyright © <span id="copyright-year">2024</span> Julian Dough
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" style="display: none;">
+        <div class="lightbox-controls">
+            <span class="lightbox-control-button" onclick="closeLightbox()">
+                <i class="bi bi-x-lg"></i>
+            </span>
+        </div>
+
+        <div class="lightbox-img-controls">
+            <span class="lightbox-control-button" onclick="navigateLightbox(-1)">
+                <i class="bi bi-caret-left-fill"></i>
+            </span>
+            <div id="lightbox-img-container">
+                <!-- Lightbox image insert here -->
+            </div>
+            <span class="lightbox-control-button" onclick="navigateLightbox(1)">
+                <i class="bi bi-caret-right-fill"></i>
+            </span>
+        </div>
+    </div>
+
+    <script src="index.js" lang="js"></script>
+
+</body>
+
+</html>

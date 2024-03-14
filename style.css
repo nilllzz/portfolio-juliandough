@@ -1,0 +1,453 @@
+:root {
+    --the-green: #01fe8b;
+    --the-light: #ceffd5;
+    --the-dark: rgb(17, 134, 32); /* It hurts you */
+    --the-darker: rgb(7, 66, 15);
+    --font-muted: rgb(100, 100, 100);
+}
+
+/* 
+@media (prefers-color-scheme: light) {
+    :root {
+        --the-green: #78e8fe;
+        --the-light: #bdeef8;
+        --the-dark: #4eb5ca;
+        --the-darker: #13414b;
+        --font-muted: rgb(100, 100, 100);
+    }
+} */
+
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 140px;
+    width: 100%;
+}
+
+hr {
+    border: none;
+    border-top-color: rgb(17, 134, 32);
+    border-top-style: dotted;
+    border-top-width: 1px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+summary {
+    color: var(--the-darker);
+    cursor: pointer;
+}
+
+details > summary::marker {
+    font-size: 24px;
+}
+
+summary > h2 {
+    display: inline-block;
+    font-size: 20px;
+}
+
+details > div {
+    padding-left: 26px;
+}
+
+.noscroll {
+    overflow: hidden;
+}
+
+.polkadot-bg {
+    background-image: linear-gradient(201deg, var(--the-light) 0%, var(--the-green) 74%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+.polkadot-bg-inner {
+    background-image: url("img/circle.png");
+    background-repeat: repeat;
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    bottom: 0;
+    right: -100vw;
+    transform: rotateZ(10deg);
+
+    animation-name: polkadot-anim;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes polkadot-anim {
+    0% {
+        transform: rotateZ(10deg) translate(0, 0);
+    }
+
+    100% {
+        transform: rotateZ(10deg) translate(-80px, 80px);
+    }
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1100px;
+    column-gap: 40px;
+    row-gap: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.col {
+    border-width: 1px;
+    border-color: black;
+}
+
+.col-info {
+    width: 100%;
+    max-width: 300px;
+    flex-grow: 0;
+}
+
+.col-data {
+    min-width: 300px;
+    flex-grow: 1;
+}
+
+.card {
+    border-radius: 12px;
+    filter: drop-shadow(0 0 10px var(--the-dark));
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.card-sticky {
+    position: sticky;
+    top: 140px;
+}
+
+.center-image {
+    display: flex;
+    justify-content: center;
+}
+
+.pfp-img-container {
+    position: relative;
+}
+
+.pfp-img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin-top: -120px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.pfp-img-surprised {
+    user-select: none;
+    display: none;
+    position: absolute;
+    top: -100px;
+    left: 20px;
+    width: 50px;
+    opacity: 1;
+}
+
+.pfp-img-container:hover .pfp-img-surprised {
+    display: block;
+    animation-name: surprise-anim;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes surprise-anim {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.bounce:hover {
+    animation-name: pfp-hover-anim;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes pfp-hover-anim {
+	0% {
+		transform: none;
+    }
+	50% {
+		transform: scaleX(0.75) scaleY(1.2) translateY(-8px);
+    }
+	100% {
+		transform: none;
+    }
+}
+
+.signature-img {   
+    margin-top: 24px; 
+    filter:
+        drop-shadow(4px 4px 1px white) 
+        drop-shadow(-4px -4px 1px white);
+}
+
+.social-icons {
+    user-select: none;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.social-icon {
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-size: 40px;
+    color: var(--the-green);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--the-darker);
+    transition:
+        -webkit-text-stroke-color 0.2s ease,
+        color 0.2s ease
+        ;
+    text-decoration: none;
+}
+
+.social-icon > * {
+    vertical-align: middle;
+}
+
+.social-icon:hover {
+    -webkit-text-stroke-color: black;
+}
+
+.social-icon-discord:hover {
+    color: #5865F2;
+}
+
+.social-icon-twitter:hover {
+    color: white;
+}
+
+.social-icon-artistcrow:hover {
+    color: #77c6da;
+}
+
+.copyright-footer {
+    color: var(--font-muted);
+    font-size: 10px;
+    text-align: right;
+}
+
+.commission-status-label {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.warning-message {
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--the-dark), var(--the-dark) 10px,
+        transparent 10px, transparent 20px
+    );
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    border-radius: 4px;
+}
+
+.warning-message .warning-text > * {
+    vertical-align: middle;
+}
+
+.warning-message .warning-text {
+    color: white;
+    background-color: var(--the-dark);
+    display: inline-block;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-weight: bold;
+}
+
+.scroll-text-container {
+    width: 1lh;
+    height: 1lh;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    writing-mode: vertical-rl;
+    margin-top: 4px;
+    user-select: none;
+}
+
+.scroll-text-content {
+    position: absolute;
+    transform: translateX(0);
+
+    animation-name: scroll-text-scroll;
+    animation-duration: 5s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scroll-text-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(50%);
+    }
+    
+    100% {
+        transform: translateX(50%);
+    }
+}
+
+.scroll-text-content-invert {
+    transform: translateX(50%);
+
+    animation-name: scroll-text-scroll-invert;
+}
+
+@keyframes scroll-text-scroll-invert {
+    0% {
+        transform: translateX(50%);
+    }
+
+    20% {
+        transform: translateX(0);
+    }
+    
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.portfolio-preview-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.portfolio-preview {
+    max-width: 400px;
+
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.portfolio-preview-img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    transition: transform 0.2s ease, border-radius 0.2s ease;
+    cursor: pointer;
+}
+
+.portfolio-preview-img:hover {
+    transform: scale(0.9);
+    border-radius: 6px;
+}
+
+.portfolio-preview-img:active {
+    transform: scale(0.8);
+}
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+
+    animation-name: lightbox-in-anim;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes lightbox-in-anim {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.lightbox-controls {
+    text-align: right;
+    padding: 20px;
+    height: 40px;
+}
+
+.lightbox-control-button {
+    cursor: pointer;
+    display: inline-block;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.75));
+    transition: transform 0.2s ease, color 0.1s ease;
+    font-size: 36px;
+    color: white;
+}
+
+.lightbox-control-button:hover {
+    transform: scale(1.1);
+}
+
+.lightbox-control-button:active {
+    color: var(--the-green);
+    transform: scale(0.9);
+}
+
+.lightbox-img-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 4px;
+    padding-right: 4px;
+    height: calc(100vh - 80px - 80px);
+}
+
+.lightbox-img {
+    max-width: calc(100vw - 80px - 80px);
+    max-height: calc(100vh - 80px - 80px);
+    border-radius: 8px;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.75));
+}
