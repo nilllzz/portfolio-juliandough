@@ -4,7 +4,7 @@
 let lightboxImages = [];
 let lightboxIndex = 0;
 
-function closeLightbox() {
+function lightboxClose() {
 	const lightboxEl = document.getElementById("lightbox");
 	lightboxEl.style.display = "none";
 	document.body.classList.remove("noscroll");
@@ -15,7 +15,7 @@ function closeLightbox() {
 /**
  * @param {Array<GalleryImage>} inputImages
  */
-function openLightbox(inputImages, shift = 0) {
+function lightboxOpen(inputImages, shift = 0) {
 	if (!Array.isArray(inputImages) || inputImages.length === 0) {
 		return;
 	}
@@ -33,7 +33,7 @@ function openLightbox(inputImages, shift = 0) {
 
 	lightboxImages = images;
 	lightboxIndex = 0;
-	navigateLightbox(0);
+	lightboxNavigate(0);
 
 	document.addEventListener("keydown", onKeyDownLightbox);
 }
@@ -44,13 +44,13 @@ function openLightbox(inputImages, shift = 0) {
 function onKeyDownLightbox(e) {
 	switch (e.key) {
 		case "Escape":
-			closeLightbox();
+			lightboxClose();
 			break;
 		case "ArrowRight":
-			navigateLightbox(1);
+			lightboxNavigate(1);
 			break;
 		case "ArrowLeft":
-			navigateLightbox(-1);
+			lightboxNavigate(-1);
 			break;
 	}
 }
@@ -58,7 +58,8 @@ function onKeyDownLightbox(e) {
 /**
  * @param {number} delta
  */
-function navigateLightbox(delta) {
+function lightboxNavigate(delta) {
+	// Load img element:
 	const lightboxImgContainerEl = document.getElementById(
 		"lightbox-img-container"
 	);
@@ -71,7 +72,8 @@ function navigateLightbox(delta) {
 		lightboxIndex = lightboxImages.length - 1;
 	}
 
-	const imageUrl = lightboxImages[lightboxIndex].url;
+	const image = lightboxImages[lightboxIndex];
+	const imageUrl = image.url;
 	const imgEl = document.createElement("img");
 	imgEl.className = "lightbox-img";
 	imgEl.src = "img/portfolio/" + imageUrl;
@@ -80,4 +82,38 @@ function navigateLightbox(delta) {
 	};
 
 	lightboxImgContainerEl.appendChild(imgEl);
+
+	// Load image info element:
+	const lightboxImgInfoEl = document.getElementById("lightbox-img-info");
+	lightboxImgInfoEl.innerHTML = "";
+
+	const nameEl = document.createElement("span");
+	nameEl.className = "lightbox-info-name";
+	nameEl.innerText = image.name;
+	lightboxImgInfoEl.appendChild(nameEl);
+
+	if (image.description) {
+		const descEl = document.createElement("span");
+		descEl.className = "lightbox-info-desc";
+		descEl.innerText = image.description;
+		lightboxImgInfoEl.appendChild(descEl);
+	}
+
+	if (image.tags) {
+		for (const tagId of image.tags) {
+			const tag = getConfigTag(tagId);
+			const tagEl = document.createElement("span");
+			tagEl.className = "lightbox-info-tag";
+
+			const tagIcon = document.createElement("i");
+			tagIcon.className = "bi bi-tag";
+			tagEl.appendChild(tagIcon);
+
+			const tagNameEl = document.createElement("span");
+			tagNameEl.innerText = " " + tag.name;
+			tagEl.appendChild(tagNameEl);
+
+			lightboxImgInfoEl.appendChild(tagEl);
+		}
+	}
 }

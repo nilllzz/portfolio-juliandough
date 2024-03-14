@@ -57,6 +57,10 @@
                             aria-label="Twitter link button" title="Twitter/X">
                             <i class="bi bi-twitter-x"></i>
                         </a>
+                        <a class="social-icon bounce-hover social-icon-trello" href="https://trello.com"
+                            aria-label="Commission queue link button" title="Commission queue">
+                            <i class="bi bi-trello"></i>
+                        </a>
                         <a class="social-icon bounce-hover social-icon-artistcrow"
                             href="https://artistcrow.com/juliandough" aria-label="Artistcrow link button"
                             title="Artistcrow">
@@ -161,27 +165,31 @@
 
     <div class="lightbox" id="lightbox" style="display: none;">
         <div class="lightbox-controls">
-            <span class="lightbox-control-button" onclick="closeLightbox()" role="button" aria-label="Close gallery"
+            <span class="lightbox-control-button" onclick="lightboxClose()" role="button" aria-label="Close gallery"
                 title="Close (Esc)">
                 <i class="bi bi-x-lg"></i>
             </span>
         </div>
 
         <div class="lightbox-img-controls">
-            <span class="lightbox-control-button" onclick="navigateLightbox(-1)" aria-label="Previous gallery image">
+            <span class="lightbox-control-button" onclick="lightboxNavigate(-1)" aria-label="Previous gallery image">
                 <i class="bi bi-caret-left-fill"></i>
             </span>
             <div id="lightbox-img-container">
                 <!-- Lightbox image insert here -->
             </div>
-            <span class="lightbox-control-button" onclick="navigateLightbox(1)" aria-label="Next gallery image">
+            <span class="lightbox-control-button" onclick="lightboxNavigate(1)" aria-label="Next gallery image">
                 <i class="bi bi-caret-right-fill"></i>
             </span>
         </div>
+
+        <div class="lightbox-img-info" id="lightbox-img-info">
+            <!-- Lightbox image info here -->
+        </div>
     </div>
 
-    <script src="index.js" lang="js"></script>
     <script src="lightbox.js" lang="js"></script>
+    <script src="index.js" lang="js"></script>
 
 </body>
 

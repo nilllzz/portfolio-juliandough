@@ -62,3 +62,30 @@
     filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.75));
     cursor: pointer;
 }
+
+.lightbox-img-info {
+    height: 56px;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.75));
+    color: rgb(220, 220, 220);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.lightbox-info-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.lightbox-info-tag {
+    background-color: var(--the-darker);
+    color: white;
+    font-size: 14px;
+    padding: 4px;
+    border-radius: 4px;
+}

@@ -122,6 +122,10 @@
     color: white;
 }
 
+.social-icon-trello:hover {
+    color: #0079bf;
+}
+
 .social-icon-artistcrow:hover {
     color: #77c6da;
 }

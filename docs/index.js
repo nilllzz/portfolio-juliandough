@@ -38,8 +38,9 @@ function addPortfolioPreviewImages(images) {
 		const imgEl = document.createElement("div");
 		imgEl.className = "portfolio-preview-img";
 		imgEl.style.backgroundImage = "url('img/portfolio/" + image.url + "')";
+		imgEl.setAttribute("alt", image.name);
 		const j = i;
-		imgEl.onclick = () => openLightbox(images, j);
+		imgEl.onclick = () => lightboxOpen(images, j);
 		portfolioPreviewContainerEl.appendChild(imgEl);
 
 		i++;
@@ -47,18 +48,3 @@ function addPortfolioPreviewImages(images) {
 }
 
 loadIndexConfig();
-
-/////////////////////////////////////////////////////
-// Custom logic
-/////////////////////////////////////////////////////
-
-/**
- * @param {PointerEvent} e
- */
-function onClickPfp(e) {
-	if (e.pointerType === "mouse") {
-		return;
-	}
-
-	const pfpEl = document.getElementById("pfp");
-}
