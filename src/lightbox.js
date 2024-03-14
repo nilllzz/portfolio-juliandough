@@ -1,17 +1,19 @@
-const copyrightYearEl = document.getElementById("copyright-year");
-copyrightYearEl.innerText = new Date().getFullYear();
+/**
+ * @type {Array<GalleryImage>}
+ */
+let lightboxImages = [];
+let lightboxIndex = 0;
 
 function closeLightbox() {
 	const lightboxEl = document.getElementById("lightbox");
 	lightboxEl.style.display = "none";
 	document.body.classList.remove("noscroll");
+
+	document.removeEventListener("keydown", onKeyDownLightbox);
 }
 
-let lightboxImages = [];
-let lightboxIndex = 0;
-
 /**
- * @param {Array<string>} inputImages
+ * @param {Array<GalleryImage>} inputImages
  */
 function openLightbox(inputImages, shift = 0) {
 	if (!Array.isArray(inputImages) || inputImages.length === 0) {
@@ -32,8 +34,30 @@ function openLightbox(inputImages, shift = 0) {
 	lightboxImages = images;
 	lightboxIndex = 0;
 	navigateLightbox(0);
+
+	document.addEventListener("keydown", onKeyDownLightbox);
 }
 
+/**
+ * @param {KeyboardEvent} e
+ */
+function onKeyDownLightbox(e) {
+	switch (e.key) {
+		case "Escape":
+			closeLightbox();
+			break;
+		case "ArrowRight":
+			navigateLightbox(1);
+			break;
+		case "ArrowLeft":
+			navigateLightbox(-1);
+			break;
+	}
+}
+
+/**
+ * @param {number} delta
+ */
 function navigateLightbox(delta) {
 	const lightboxImgContainerEl = document.getElementById(
 		"lightbox-img-container"
@@ -47,43 +71,13 @@ function navigateLightbox(delta) {
 		lightboxIndex = lightboxImages.length - 1;
 	}
 
-	const imageUrl = lightboxImages[lightboxIndex];
+	const imageUrl = lightboxImages[lightboxIndex].url;
 	const imgEl = document.createElement("img");
 	imgEl.className = "lightbox-img";
 	imgEl.src = "img/portfolio/" + imageUrl;
+	imgEl.onclick = () => {
+		window.open(imgEl.src).focus();
+	};
+
 	lightboxImgContainerEl.appendChild(imgEl);
 }
-
-function addPortfolioPreviewImages(images) {
-	const portfolioPreviewContainerEl = document.getElementById(
-		"portfolio-preview-container"
-	);
-
-	let i = 0;
-	for (const imageUrl of images) {
-		const imgEl = document.createElement("div");
-		imgEl.className = "portfolio-preview-img";
-		imgEl.style.backgroundImage = "url('img/portfolio/" + imageUrl + "')";
-
-		const j = i;
-		imgEl.onclick = () => openLightbox(images, j);
-		portfolioPreviewContainerEl.appendChild(imgEl);
-
-		i++;
-	}
-}
-
-addPortfolioPreviewImages([
-	"001.jpg",
-	"002.jpg",
-	"003.jpg",
-	"004.jpg",
-	"005.jpg",
-	"006.jpg",
-	"007.jpg",
-	"008.jpg",
-	"009.jpg",
-	"010.jpg",
-	"011.jpg",
-	"012.jpg",
-]);

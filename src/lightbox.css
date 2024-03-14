@@ -1,0 +1,64 @@
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+
+    animation-name: lightbox-in-anim;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes lightbox-in-anim {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.lightbox-controls {
+    text-align: right;
+    padding: 20px;
+    height: 40px;
+}
+
+.lightbox-control-button {
+    cursor: pointer;
+    display: inline-block;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.75));
+    transition: transform 0.2s ease, color 0.1s ease;
+    font-size: 36px;
+    color: white;
+}
+
+.lightbox-control-button:hover {
+    transform: scale(1.1);
+}
+
+.lightbox-control-button:active {
+    color: var(--the-green);
+    transform: scale(0.9);
+}
+
+.lightbox-img-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 4px;
+    padding-right: 4px;
+    height: calc(100vh - 80px - 80px);
+}
+
+.lightbox-img {
+    max-width: calc(100vw - 80px - 80px);
+    max-height: calc(100vh - 80px - 80px);
+    border-radius: 8px;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.75));
+    cursor: pointer;
+}

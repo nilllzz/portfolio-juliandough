@@ -1,0 +1,164 @@
+:root {
+    --the-green: #01fe8b;
+    --the-light: #ceffd5;
+    --the-dark: rgb(17, 134, 32); /* It hurts you */
+    --the-darker: rgb(7, 66, 15);
+    --font-muted: rgb(100, 100, 100);
+    --error-color: #e26f88;
+}
+
+/* 
+@media (prefers-color-scheme: light) {
+    :root {
+        --the-green: #78e8fe;
+        --the-light: #bdeef8;
+        --the-dark: #4eb5ca;
+        --the-darker: #13414b;
+        --font-muted: rgb(100, 100, 100);
+    }
+} */
+
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: linear-gradient(201deg, var(--the-light) 0%, var(--the-green) 74%);
+    margin: 0;
+    padding: 0;
+    padding-top: 140px;
+    width: 100%;
+}
+
+hr {
+    border: none;
+    border-top-color: rgb(17, 134, 32);
+    border-top-style: dotted;
+    border-top-width: 1px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+summary {
+    color: var(--the-darker);
+    cursor: pointer;
+}
+
+details > summary::marker {
+    font-size: 24px;
+}
+
+summary > h2 {
+    display: inline-block;
+    font-size: 20px;
+}
+
+details > div {
+    padding-left: 26px;
+}
+
+a {
+    text-decoration-style: dotted;
+    color: var(--the-darker);
+}
+
+.noscroll {
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.polkadot-bg {
+    background-image: linear-gradient(201deg, var(--the-light) 0%, var(--the-green) 74%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+.polkadot-bg-inner {
+    background-image: url("img/circle.png");
+    background-repeat: repeat;
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    bottom: 0;
+    right: -100vw;
+    transform: rotateZ(10deg);
+
+    animation-name: polkadot-anim;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes polkadot-anim {
+    0% {
+        transform: rotateZ(10deg) translate(0, 0);
+    }
+
+    100% {
+        transform: rotateZ(10deg) translate(-80px, 80px);
+    }
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1100px;
+    column-gap: 40px;
+    row-gap: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.col {
+    border-width: 1px;
+    border-color: black;
+}
+
+.card {
+    border-radius: 12px;
+    filter: drop-shadow(0 0 10px var(--the-dark));
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.card-sticky {
+    position: sticky;
+    top: 140px;
+}
+
+.center-image {
+    display: flex;
+    justify-content: center;
+}
+
+@media (width <= 420px) {
+    .content {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .card {
+        margin-bottom: 10px;
+    }
+}
