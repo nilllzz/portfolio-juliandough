@@ -378,6 +378,8 @@ details > div {
     flex-grow: 0;
     transition: transform 0.2s ease, border-radius 0.2s ease;
     cursor: pointer;
+    background-position: center;
+    background-size: cover;
 }
 
 .portfolio-preview-img:hover {

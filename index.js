@@ -61,9 +61,10 @@ function addPortfolioPreviewImages(images) {
 
 	let i = 0;
 	for (const imageUrl of images) {
-		const imgEl = document.createElement("img");
+		const imgEl = document.createElement("div");
 		imgEl.className = "portfolio-preview-img";
-		imgEl.src = "img/portfolio/" + imageUrl;
+		imgEl.style.backgroundImage = "url('img/portfolio/" + imageUrl + "')";
+
 		const j = i;
 		imgEl.onclick = () => openLightbox(images, j);
 		portfolioPreviewContainerEl.appendChild(imgEl);
