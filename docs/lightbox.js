@@ -6,7 +6,7 @@ let lightboxIndex = 0;
 
 function lightboxClose() {
 	const lightboxEl = document.getElementById("lightbox");
-	lightboxEl.style.display = "none";
+	lightboxEl.classList.add("hidden");
 	document.body.classList.remove("noscroll");
 
 	document.removeEventListener("keydown", onKeyDownLightbox);
@@ -28,7 +28,7 @@ function lightboxOpen(inputImages, shift = 0) {
 	}
 
 	const lightboxEl = document.getElementById("lightbox");
-	lightboxEl.style.display = "block";
+	lightboxEl.classList.remove("hidden");
 	document.body.classList.add("noscroll");
 
 	lightboxImages = images;

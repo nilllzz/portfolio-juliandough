@@ -57,10 +57,11 @@
                             aria-label="Twitter link button" title="Twitter/X">
                             <i class="bi bi-twitter-x"></i>
                         </a>
-                        <a class="social-icon bounce-hover social-icon-trello" href="https://trello.com"
-                            aria-label="Commission queue link button" title="Commission queue">
+                        <span class="social-icon bounce-hover social-icon-trello hidden" id="trello-social-button"
+                            onpointerdown="trelloBoardOpen(event)" aria-label="Commission queue link button"
+                            title="Commission queue">
                             <i class="bi bi-trello"></i>
-                        </a>
+                        </span>
                         <a class="social-icon bounce-hover social-icon-artistcrow"
                             href="https://artistcrow.com/juliandough" aria-label="Artistcrow link button"
                             title="Artistcrow">
@@ -163,7 +164,7 @@
         </div>
     </div>
 
-    <div class="lightbox" id="lightbox" style="display: none;">
+    <div class="lightbox hidden" id="lightbox">
         <div class="lightbox-controls">
             <span class="lightbox-control-button" onclick="lightboxClose()" role="button" aria-label="Close gallery"
                 title="Close (Esc)">
@@ -186,6 +187,17 @@
         <div class="lightbox-img-info" id="lightbox-img-info">
             <!-- Lightbox image info here -->
         </div>
+    </div>
+
+    <div class="trello-board hidden" id="trello-board">
+        <div class="lightbox-controls">
+            <span class="lightbox-control-button" onclick="trelloBoardClose()" role="button" aria-label="Close gallery"
+                title="Close (Esc)">
+                <i class="bi bi-x-lg"></i>
+            </span>
+        </div>
+
+        <div class="trello-board-container" id="trello-board-container"></div>
     </div>
 
     <script src="lightbox.js" lang="js"></script>

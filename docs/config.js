@@ -123,6 +123,7 @@ const __config = {
 		],
 		bioText:
 			"I draw furry art, trying to make a comic but have lack motivation into starting it, I like watching YouTube tho",
+		trelloBoard: "https://trello.com/b/AXUgclcj",
 	},
 	gallery: {
 		images: ["001"],
