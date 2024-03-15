@@ -88,8 +88,8 @@ a {
     background-repeat: repeat;
     position: absolute;
     top: -100vh;
-    left: 0;
-    bottom: 0;
+    left: -100vw;
+    bottom: -100vh;
     right: -100vw;
     transform: rotateZ(10deg);
 
@@ -161,4 +161,50 @@ a {
     .card {
         margin-bottom: 10px;
     }
+}
+
+button.button {
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 8px;
+    background: unset;
+    position: relative;
+    min-width: 200px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 14px;
+    transition: transform 0.2s ease;
+    font-weight: bold;
+}
+
+button.button:active {
+    transform: scale(0.95);
+}
+
+button.button::before {
+    content: ' ';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    bottom: -100px;
+    right: -100px;
+    background-image: url("img/btn_bg.png");
+    z-index: -1;
+    transform: rotateZ(10deg);
+    opacity: 0.5;
+    transition: background 0.2s ease;
+}
+
+button.button:hover::before {
+    background: white;
+}
+
+button.button:active::before {
+    background: var(--the-green);
 }
