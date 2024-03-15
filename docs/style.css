@@ -5,6 +5,7 @@
     --the-darker: rgb(7, 66, 15);
     --font-muted: rgb(100, 100, 100);
     --error-color: #e26f88;
+    --breakpoint-sm: 420px;
 }
 
 /* 

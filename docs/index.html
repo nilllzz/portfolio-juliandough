@@ -180,7 +180,7 @@
                     <p>Larger categorized gallery</p>
 
                     <div class="copyright-footer">
-                        <span id="copyright">Copyright © 2024 Julian Dough</span>
+                        <span id="copyright"></span>
                     </div>
                 </div>
             </div>
@@ -188,25 +188,22 @@
     </div>
 
     <div class="lightbox hidden" id="lightbox">
-        <div class="lightbox-controls">
-            <span class="lightbox-control-button" onclick="lightboxClose()" role="button" aria-label="Close gallery"
-                title="Close (Esc)">
-                <i class="bi bi-x-lg"></i>
-            </span>
+        <div id="lightbox-img-container">
+            <!-- Lightbox image insert here -->
         </div>
 
-        <div class="lightbox-img-controls">
-            <span class="lightbox-control-button" onclick="lightboxNavigate(-1)" aria-label="Previous gallery image">
-                <i class="bi bi-caret-left-fill"></i>
-            </span>
-            <div id="lightbox-img-container">
-                <!-- Lightbox image insert here -->
-            </div>
-            <span class="lightbox-control-button" onclick="lightboxNavigate(1)" aria-label="Next gallery image">
-                <i class="bi bi-caret-right-fill"></i>
-            </span>
-        </div>
-
+        <span class="lightbox-control-button lightbox-exit" onclick="lightboxClose()" role="button"
+            aria-label="Close gallery" title="Close (Esc)">
+            <i class="bi bi-x-lg"></i>
+        </span>
+        <span class="lightbox-control-button lightbox-previous" onclick="lightboxNavigate(-1)"
+            aria-label="Previous gallery image">
+            <i class="bi bi-caret-left-fill"></i>
+        </span>
+        <span class="lightbox-control-button lightbox-next" onclick="lightboxNavigate(1)"
+            aria-label="Next gallery image">
+            <i class="bi bi-caret-right-fill"></i>
+        </span>
         <div class="lightbox-img-info" id="lightbox-img-info">
             <!-- Lightbox image info here -->
         </div>
